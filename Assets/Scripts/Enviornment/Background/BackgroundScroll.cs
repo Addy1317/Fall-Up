@@ -7,7 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SlowpokeStudio.FallUp
+namespace SlowpokeStudio.FallUp.Enviornment
 {
     public class BackgroundScroll : MonoBehaviour
     {
