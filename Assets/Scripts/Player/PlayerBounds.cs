@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using SlowpokeStudio.FallUp.Mangers;
+using SS.FallUp.Mangers;
 
-namespace SlowpokeStudio.FallUp.Player
+namespace SS.FallUp.Player
 {
     public class PlayerBounds : MonoBehaviour
     {

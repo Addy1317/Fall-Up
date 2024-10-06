@@ -2,20 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SlowpokeStudio.FallUp
+namespace SS.FallUp.Generic
 {
-    public class GenericMonoSingleton : MonoBehaviour
+    public class GenericMonoSingleton<T> : MonoBehaviour where T : GenericMonoSingleton<T>
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        private static T instance;
+        public static T Instance { get { return instance; } }
 
-        // Update is called once per frame
-        void Update()
+        protected virtual void Awake()
         {
-        
+            if (instance == null)
+            {
+                instance = (T)this;
+                DontDestroyOnLoad(gameObject);
+                Debug.Log($"{typeof(T)} instance created.");
+            }
+            else
+            {
+                Destroy(gameObject);
+                Debug.LogWarning($"{typeof(T)} already exists. Destroying duplicate on {gameObject.name}");
+            }
         }
     }
 }

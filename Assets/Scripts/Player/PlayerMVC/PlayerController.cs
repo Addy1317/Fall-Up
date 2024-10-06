@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SlowpokeStudio.FallUp.Player
+namespace SS.FallUp.Player
 {
     public class PlayerController : MonoBehaviour
     {

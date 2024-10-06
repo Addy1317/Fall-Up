@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SlowpokeStudio.FallUp.Mangers
+namespace SS.FallUp.Mangers
 {
     public class SoundManager : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace SlowpokeStudio.FallUp.Mangers
+namespace SS.FallUp.Mangers
 {
     public class GameManager : MonoBehaviour
     {

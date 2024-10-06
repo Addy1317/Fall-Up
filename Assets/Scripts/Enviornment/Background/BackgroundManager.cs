@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SlowpokeStudio.FallUp
+namespace SS.FallUp
 {
     public class BackgroundManager : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace SlowpokeStudio.FallUp.Platform
+namespace SS.FallUp.Platform
 {
     public class PlatformSpawner : MonoBehaviour
     {

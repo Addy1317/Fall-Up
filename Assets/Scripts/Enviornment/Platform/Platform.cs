@@ -3,13 +3,13 @@
 ///  
 /// </summary>
 #endregion
-using SlowpokeStudio.FallUp.Mangers;
-using SlowpokeStudio.FallUp.Player;
+using SS.FallUp.Mangers;
+using SS.FallUp.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SlowpokeStudio.FallUp.Platform
+namespace SS.FallUp.Platform
 {
     public class Platform : MonoBehaviour
     {
