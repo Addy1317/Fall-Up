@@ -12,6 +12,13 @@ namespace SS.FallUp.Audio
         Bombing
     }
 
+    [System.Serializable]
+    public struct SFXAudio
+    {
+        public SFXType sfxType;
+        public AudioClip audioClip;
+    }
+
     [CreateAssetMenu(fileName = "AudioSO", menuName = "Audio/AudioSO")]
     public class AudioSO : ScriptableObject
     {
@@ -20,21 +27,22 @@ namespace SS.FallUp.Audio
         [SerializeField] [Range(0f, 1f)] public float backgroundMusicVolume = 0.5f; 
 
         [Header("SFX")]
-        [SerializeField] public AudioClip[] sfxClips; 
+        [SerializeField] public SFXAudio[] sfxClips; 
         [SerializeField] [Range(0f, 1f)] public float sfxVolume = 0.5f; 
 
         // Method to get SFX clip by enum
         public AudioClip GetSFXClip(SFXType sfxType)
         {
-            int index = (int)sfxType; 
-
-            if (index >= 0 && index < sfxClips.Length)
+            foreach (var sfx in sfxClips)
             {
-                return sfxClips[index];
+                if (sfx.sfxType == sfxType)
+                {
+                    return sfx.audioClip; // Return the audioClip
+                }
             }
 
             Debug.LogWarning($"SFX clip for {sfxType} not found. Returning null.");
-            return null; 
+            return null;
         }
     }
 }

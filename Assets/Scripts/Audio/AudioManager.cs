@@ -45,13 +45,13 @@ namespace SS.FallUp.Audio
         {
             audioSettings.backgroundMusicVolume = volume; 
             backgroundMusicSource.volume = volume; 
-            Debug.Log($"Background Music Volume set to: {volume}");
+           // Debug.Log($"Background Music Volume set to: {volume}");
         }
 
         private void UpdateSFXVolume(float volume)
         {
             audioSettings.sfxVolume = volume;
-            Debug.Log($"SFX Volume set to: {volume}");
+            // Debug.Log($"SFX Volume set to: {volume}");
         }
 
         public void PlaySFX(SFXType sfxType)
