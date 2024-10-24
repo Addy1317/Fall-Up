@@ -2,7 +2,10 @@ using SS.FallUp.Mangers;
 using SS.FallUp.Generic;
 using SS.FallUp.Audio;
 using SS.FallUp.UI;
+using SS.FallUp.Pause;
 using UnityEngine;
+using SS.FallUp.Coin;
+using SS.FallUp.Timer;
 
 namespace SS.FallUp.Services
 {
@@ -10,7 +13,11 @@ namespace SS.FallUp.Services
     {
         public GameManager gameManager {  get; private set; }
         public AudioManager audioManager { get; private set; }
-        public MainMenuUI uiManager { get; private set; }
+        public CoinManager coinManager { get; private set; }      
+        public UIManager uiManager { get; private set; }
+        public MainMenuUI mainMenuUI { get; private set; }
+        public PauseManager pauseManager { get; private set; }
+        public TimerManager timerManager { get; private set; }
 
         protected override void Awake()
         {
@@ -18,14 +25,18 @@ namespace SS.FallUp.Services
             if (Instance == this)
             {
                 DontDestroyOnLoad(gameObject);
-            }
+            } 
         }
 
         private void Start()
         {
             gameManager = new GameManager();
             audioManager  = new AudioManager();
-            uiManager = new MainMenuUI();
+            coinManager = new CoinManager();
+            uiManager = new UIManager();
+            mainMenuUI = new MainMenuUI();
+            pauseManager = new PauseManager();
+            timerManager = new TimerManager();
         }
 
         private void InitializeServices()
@@ -40,9 +51,29 @@ namespace SS.FallUp.Services
                 Debug.LogError("AudioManager failed to initialize.");
             }
 
-            if (uiManager == null)
+            if (coinManager == null)
+            {
+                Debug.LogError("coinManager failed to initialize.");
+            }
+
+            if(uiManager == null)
+            {
+                Debug.LogError("uiManager failed to initialize.");
+            }
+
+            if (mainMenuUI == null)
             {
                 Debug.LogError("UIManager failed to initialize.");
+            }
+            
+            if (pauseManager == null)
+            {
+                Debug.LogError("PauseManager failed to initialize.");
+            }
+
+            if (timerManager == null)
+            {
+                Debug.LogError("TimeManager failed to initialize.");
             }
         }
     }
