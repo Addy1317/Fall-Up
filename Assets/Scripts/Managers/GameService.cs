@@ -1,55 +1,42 @@
-using SS.FallUp.Mangers;
 using SS.FallUp.Generic;
 using SS.FallUp.Audio;
 using SS.FallUp.UI;
-using SS.FallUp.Pause;
 using UnityEngine;
 using SS.FallUp.Coin;
 using SS.FallUp.Timer;
 using SS.FallUp.Event;
+using SS.FallUp.Spawner;
+using SS.FallUp.MainManager;
 
 namespace SS.FallUp.Services
 {
     public class GameService : GenericMonoSingleton<GameService>
     {
-        public GameManager gameManager {  get; private set; }
-        public AudioManager audioManager { get; private set; }
-        public CoinManager coinManager { get; private set; }      
-        public UIManager uiManager { get; private set; }
-        public MainMenuUI mainMenuUI { get; private set; }
-        public PauseManager pauseManager { get; private set; }
-        public TimerManager timerManager { get; private set; }
+        [SerializeField] internal GameManager gameManager;
+        [SerializeField] internal AudioManager audioManager;
+        [SerializeField] internal UIManager uiManager;
+        [SerializeField] internal CoinManager coinManager;
+        [SerializeField] internal TimerManager timerManager;
+        [SerializeField] internal SpawnManager spawnManager;
+        [SerializeField] internal EventManager eventManager;
 
-        [SerializeField] internal EventManager eventManager; //{ get; private set; }
         protected override void Awake()
         {
             base.Awake();
             if (Instance == this)
             {
                 DontDestroyOnLoad(gameObject);
-            } 
-        }
-
-        private void Start()
-        {
-            gameManager = new GameManager();
-            audioManager  = new AudioManager();
-            coinManager = new CoinManager();
-            uiManager = new UIManager();
-            mainMenuUI = new MainMenuUI();
-            pauseManager = new PauseManager();
-            timerManager = new TimerManager();
-           // eventManager = new EventManager();
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
 
             InitializeServices();
         }
 
         private void InitializeServices()
         {
-            if (gameManager == null)
-            {
-                Debug.LogError("GameManager failed to initialize.");
-            }
 
             if (audioManager == null)
             {
@@ -61,17 +48,12 @@ namespace SS.FallUp.Services
                 Debug.LogError("coinManager failed to initialize.");
             }
 
-            if(uiManager == null)
+            if (uiManager == null)
             {
                 Debug.LogError("uiManager failed to initialize.");
             }
 
-            if (mainMenuUI == null)
-            {
-                Debug.LogError("UIManager failed to initialize.");
-            }
-            
-            if (pauseManager == null)
+            if (gameManager == null)
             {
                 Debug.LogError("PauseManager failed to initialize.");
             }
@@ -81,7 +63,12 @@ namespace SS.FallUp.Services
                 Debug.LogError("TimeManager failed to initialize.");
             }
 
-            if(eventManager == null)
+            if (spawnManager == null)
+            {
+                Debug.LogError("SpawnManager failed to initialize.");
+            }
+
+            if (eventManager == null)
             {
                 Debug.LogError("EventManager failed to initialize.");
             }

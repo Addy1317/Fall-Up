@@ -1,31 +1,46 @@
-using SS.FallUp.GameOver;
-using SS.FallUp.Services;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-namespace SS.FallUp.Mangers
+namespace SS.FallUp.MainManager
 {
     public class GameManager : MonoBehaviour
     {
-        public static GameManager instance;
+        private bool isPaused = false;  
 
-        private void Awake()
+        // Method to toggle pause/resume
+        public void TogglePause()
         {
-            if(instance == null)
+            if (isPaused)
             {
-                instance = this;
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
             }
         }
-        internal void RestartGame()
+
+        // Method to pause the game
+        public void PauseGame()
         {
-            Invoke("RestartAfterTime", 0f);
+            Time.timeScale = 0f;  
+            isPaused = true;
+            Debug.Log("Game Paused");
         }
 
-        private void RestartAfterTime()
+        // Method to resume the game
+        public void ResumeGame()
         {
-            SceneManager.LoadScene(1);
-        }   
+            Time.timeScale = 1f;  
+            isPaused = false;
+            Debug.Log("Game Resumed");
+        }
+
+        // Optional: Direct method to check pause state
+        public bool IsGamePaused()
+        {
+            return isPaused;
+        }
     }
 }

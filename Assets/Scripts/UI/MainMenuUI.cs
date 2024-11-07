@@ -42,7 +42,8 @@ namespace SS.FallUp.UI
         #region Credits Panel Buttons
         public void OnCreditsButton()
         {
-            creditsPanel.SetActive(!creditsPanel.activeSelf);
+            //creditsPanel.SetActive(!creditsPanel.activeSelf);
+            creditsPanel.SetActive(true);
         }
 
         public void OnCreditsCloseButton()

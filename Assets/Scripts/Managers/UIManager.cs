@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.SceneManagement;
 using SS.FallUp.Services;
 using SS.FallUp.GameOver;
@@ -52,7 +49,7 @@ namespace SS.FallUp.UI
         public void OnPauseButton()
         {
             pausePanel.SetActive(!pausePanel.activeSelf);
-            GameService.Instance.pauseManager.PauseGame();
+            GameService.Instance.gameManager.PauseGame();
         }
         #endregion
 
@@ -80,7 +77,7 @@ namespace SS.FallUp.UI
         public void OnPauseCloseButton()
         {
             pausePanel.SetActive(false);
-            GameService.Instance.pauseManager.ResumeGame();
+            GameService.Instance.gameManager.ResumeGame();
         }
 
         #endregion
@@ -97,7 +94,7 @@ namespace SS.FallUp.UI
         {
             GameOverPanel.DisplayGameOverInfo();
             Debug.Log("GameOver Panel: " + GameOverPanel.gameObject.name);
-            GameService.Instance.pauseManager.PauseGame();
+            GameService.Instance.gameManager.PauseGame();
         }
         #endregion
 

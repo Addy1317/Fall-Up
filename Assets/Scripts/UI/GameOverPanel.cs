@@ -10,7 +10,7 @@ namespace SS.FallUp.GameOver
     {
         [SerializeField] private TextMeshProUGUI coinCountText;
         [SerializeField] private TextMeshProUGUI totalTimeText;
-        [SerializeField] private TimerManager timerManager;
+        //[SerializeField] private TimerManager timerManager;
 
         public void DisplayGameOverInfo()
         {
@@ -20,7 +20,7 @@ namespace SS.FallUp.GameOver
         // Update the total time text
         private void UpdateTotalTime()
         {
-            totalTimeText.text = "Total Time Survived: " + timerManager.GetFormattedTime(); // Set the total time survived
+            totalTimeText.text = "Total Time Survived: " + GameService.Instance.timerManager.GetFormattedTime(); // Set the total time survived
             Debug.Log($"Total Time Survived displayed: {totalTimeText.text}");
         }
 

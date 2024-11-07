@@ -39,7 +39,7 @@ namespace SS.FallUp.Player
                 if(! _outofBounds)
                 {
                     _outofBounds = true;
-                    GameManager.instance.RestartGame();
+                    //GameManager.instance.RestartGame();
                     SoundManager.instance.DeathSound();
                 }
             }
@@ -51,7 +51,7 @@ namespace SS.FallUp.Player
             if (target.tag == "TopSpike")
             {
                 transform.position = new Vector2(1000f, 1000f);
-                GameManager.instance.RestartGame();
+                //GameManager.instance.RestartGame();
                 SoundManager.instance.DeathSound();
             }
         }

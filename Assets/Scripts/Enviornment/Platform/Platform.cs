@@ -72,7 +72,7 @@ namespace SS.FallUp.Platform
                 if(_isSpike)
                 {
                     target.transform.position = new Vector2(1000f, 1000f);
-                    GameManager.instance.RestartGame();
+                    //GameManager.instance.RestartGame();
                     SoundManager.instance.GameOverSound();
                 }
             }
