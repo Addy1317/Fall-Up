@@ -18,19 +18,34 @@ namespace SS.FallUp.UI
 
         [SerializeField] private GameOverPanel GameOverPanel;
 
+        private void OnEnable()
+        {
+            if (GameService.Instance == null)
+            {
+                Debug.LogError("GameService instance is null.");
+                return;
+            }
+
+            if (GameService.Instance.eventManager == null)
+            {
+                Debug.LogError("EventManager is not initialized in GameService.");
+                return;
+            }
+
+            GameService.Instance.eventManager.OnPlayerDeathEvent.AddListener(OnPlayerDeath);
+        }
+
+        private void OnDisable()
+        {
+            GameService.Instance.eventManager.OnPlayerDeathEvent.RemoveListener(OnPlayerDeath);
+        }
+
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space)) 
             {
                 TriggerGameOver();
             }
-        }
-
-        // Method to handle game over
-        private void TriggerGameOver()
-        {
-            gameOverPanel.SetActive(true);
-            OnGameOver();
         }
 
         #region Pause Button
@@ -80,12 +95,24 @@ namespace SS.FallUp.UI
         #region GameOver Panel
         internal void OnGameOver()
         {
-            //gameOverPanel.SetActive(true);
-
             GameOverPanel.DisplayGameOverInfo();
             Debug.Log("GameOver Panel: " + GameOverPanel.gameObject.name);
             GameService.Instance.pauseManager.PauseGame();
         }
         #endregion
+
+        private void OnPlayerDeath()
+        {
+            TriggerGameOver();
+            //gameOverPanel.SetActive(true);
+            Debug.Log("Game Over! Player has died.");
+            // Additional logic like pausing the game or displaying final score
+        }
+
+        private void TriggerGameOver()
+        {
+            gameOverPanel.SetActive(true);
+            OnGameOver();
+        }
     }
 }

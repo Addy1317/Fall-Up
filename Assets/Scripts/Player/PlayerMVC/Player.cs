@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SS.FallUp.Player
 {
-    public class PlayerController : MonoBehaviour
+    public class Player : MonoBehaviour
     {
         [SerializeField] private float _moveSpeed = 2f;
 
@@ -24,18 +24,18 @@ namespace SS.FallUp.Player
         {
             if(Input.GetAxisRaw("Horizontal") > 0f)
             {
-                _rigidbody2d.velocity = new Vector2(_moveSpeed, _rigidbody2d.velocity.y);
+                _rigidbody2d.linearVelocity = new Vector2(_moveSpeed, _rigidbody2d.linearVelocity.y);
             }
 
             if(Input.GetAxisRaw("Horizontal") < 0f)
             {
-                _rigidbody2d.velocity = new Vector2(-_moveSpeed, _rigidbody2d.velocity.y);
+                _rigidbody2d.linearVelocity = new Vector2(-_moveSpeed, _rigidbody2d.linearVelocity.y);
             }
         }
 
         internal void PlatformMove(float x)
         {
-            _rigidbody2d.velocity = new Vector2(x, _rigidbody2d.velocity.y);
+            _rigidbody2d.linearVelocity = new Vector2(x, _rigidbody2d.linearVelocity.y);
         }
     }
 }

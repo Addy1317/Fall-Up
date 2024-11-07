@@ -6,6 +6,7 @@ using SS.FallUp.Pause;
 using UnityEngine;
 using SS.FallUp.Coin;
 using SS.FallUp.Timer;
+using SS.FallUp.Event;
 
 namespace SS.FallUp.Services
 {
@@ -19,6 +20,7 @@ namespace SS.FallUp.Services
         public PauseManager pauseManager { get; private set; }
         public TimerManager timerManager { get; private set; }
 
+        [SerializeField] internal EventManager eventManager; //{ get; private set; }
         protected override void Awake()
         {
             base.Awake();
@@ -37,6 +39,9 @@ namespace SS.FallUp.Services
             mainMenuUI = new MainMenuUI();
             pauseManager = new PauseManager();
             timerManager = new TimerManager();
+           // eventManager = new EventManager();
+
+            InitializeServices();
         }
 
         private void InitializeServices()
@@ -74,6 +79,11 @@ namespace SS.FallUp.Services
             if (timerManager == null)
             {
                 Debug.LogError("TimeManager failed to initialize.");
+            }
+
+            if(eventManager == null)
+            {
+                Debug.LogError("EventManager failed to initialize.");
             }
         }
     }

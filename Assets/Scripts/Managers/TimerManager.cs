@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -30,28 +28,28 @@ namespace SS.FallUp.Timer
         public void StartTimer()
         {
             isTimerRunning = true;
-            Debug.Log("Timer started.");
+            //Debug.Log("Timer started.");
         }
 
         // Update the timer
         private void UpdateTimer()
         {
-            elapsedTime += Time.deltaTime; // Increment elapsed time by frame time
-            DisplayTimer(); // Update the UI display
-            Debug.Log($"Elapsed Time: {GetFormattedDetailedTime()}");
+            elapsedTime += Time.deltaTime;
+            DisplayTimer(); 
+           // Debug.Log($"Elapsed Time: {GetFormattedDetailedTime()}");
         }
 
         // Stop the timer
         public void StopTimer()
         {
             isTimerRunning = false;
-            Debug.Log("Timer stopped.");
+            //Debug.Log("Timer stopped.");
         }
 
         // Format and display the timer
         private void DisplayTimer()
         {
-            timerText.text = GetFormattedDetailedTime(); // Update timer display
+            timerText.text = GetFormattedDetailedTime(); 
         }
 
         // Get the time formatted as MM-SS
@@ -75,8 +73,8 @@ namespace SS.FallUp.Timer
         public void UpdateGameOverPanel()
         {
             string formattedTime = GetFormattedTime();
-            gameOverTimeText.text = formattedTime; // Set total time survived
-            Debug.Log($"Game Over! Total Time Survived: {formattedTime}");
+            gameOverTimeText.text = formattedTime; 
+            //Debug.Log($"Game Over! Total Time Survived: {formattedTime}");
         }
     }
 }

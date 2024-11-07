@@ -101,12 +101,12 @@ namespace SS.FallUp.Platform
             {
                 if(_movingPlatformLeft)
                 {
-                    target.gameObject.GetComponent<PlayerController>().PlatformMove(-1f);
+                    target.gameObject.GetComponent<Player.Player>().PlatformMove(-1f);
                 } 
 
                 if(_movingPlatformRight)
                 {
-                    target.gameObject.GetComponent<PlayerController>().PlatformMove(1f);
+                    target.gameObject.GetComponent<Player.Player>().PlatformMove(1f);
                 }
             }
         }

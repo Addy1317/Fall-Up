@@ -47,7 +47,7 @@ namespace SS.FallUp.UI
 
         public void OnCreditsCloseButton()
         {
-            creditsPanel.SetActive(true);
+            creditsPanel.SetActive(false);
         }
 
         #endregion

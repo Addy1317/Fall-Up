@@ -1,3 +1,5 @@
+using SS.FallUp.GameOver;
+using SS.FallUp.Services;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,12 +20,12 @@ namespace SS.FallUp.Mangers
         }
         internal void RestartGame()
         {
-            Invoke("RestartAfterTime", 2f);
+            Invoke("RestartAfterTime", 0f);
         }
 
         private void RestartAfterTime()
         {
             SceneManager.LoadScene(1);
-        }
+        }   
     }
 }
