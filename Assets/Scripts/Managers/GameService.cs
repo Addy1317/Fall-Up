@@ -1,3 +1,8 @@
+#region Summary
+///<summary>
+///Service Locator for Handling Multiple Singletons
+///</summary>
+#endregion
 using SS.FallUp.Generic;
 using SS.FallUp.Audio;
 using SS.FallUp.UI;

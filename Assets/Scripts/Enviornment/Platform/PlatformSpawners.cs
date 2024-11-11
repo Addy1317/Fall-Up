@@ -1,9 +1,10 @@
 using System;
+using TMPro.Examples;
 using UnityEngine;
 
 namespace SS.FallUp.Platform
 {
-    public class PlatformSpawner : MonoBehaviour
+    public class PlatformSpawners : MonoBehaviour
     {
         [SerializeField] private GameObject _platformPrefab;
         [SerializeField] private GameObject _spikePlatformPrefab;

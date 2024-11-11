@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0be58091a5fa61469332c3fec9c6134, type: 3}
+  m_Name: PlatformSO
+  m_EditorClassIdentifier: 
+  platformName: 
+  platformType: 0
+  size: {x: 1, y: 0.5}
+  spawnIntervalMin: 1
+  spawnIntervalMax: 3
+  moveSpeed: 2
+  isMovingRight: 0
+  vanishTime: 2
+  damageAmount: 10

@@ -9,9 +9,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SS.FallUp.Platform
+namespace SS.FallUp.Platforms
 {
-    public class Platform : MonoBehaviour
+    public class BasePlatform : MonoBehaviour
     {
         [SerializeField] private float _moveSpeed = 2f;
         [SerializeField] private float _boundY = 6f;
