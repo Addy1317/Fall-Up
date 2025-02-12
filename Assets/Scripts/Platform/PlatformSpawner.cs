@@ -68,24 +68,21 @@ namespace SS.FallUp.Platforms
                platform.transform.position = spawnPosition;
 
                platform.gameObject.SetActive(true); // Activate the platform*/
-             //========================================================================================
-            // Choose a random platform type from the array
+
+            //========================================================================================
             int randomIndex = Random.Range(0, platformPrefabs.Length);
             PlatformPrefab selectedPlatform = platformPrefabs[randomIndex];
 
-            // Choose a random position within the X range
             float randomX = Random.Range(-platformSpawnerSO.spawnXRange, platformSpawnerSO.spawnXRange);
             Vector3 spawnPosition = new Vector3(randomX, platformSpawnerSO.spawnYPosition, 0);
 
-            // Instantiate the platform at the calculated position
             GameObject platformInstance = Instantiate(selectedPlatform.prefab, spawnPosition, Quaternion.identity);
 
-            // Initialize platform using PlatformSO from the prefab
             Platform platformScript = platformInstance.GetComponent<Platform>();
             if (platformScript != null)
             {
-                platformScript.InitializeFromSO(platformSpawnerSO);  // Initialize with correct SO
-                platformScript.Activate();  // Activate the platform
+                platformScript.InitializeFromSO(platformSpawnerSO);  
+                platformScript.Activate(); 
             }
 
             Debug.Log($"Spawned platform type: {selectedPlatform.platformType}");

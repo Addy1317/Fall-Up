@@ -17,10 +17,10 @@ namespace SS.FallUp.Player
 
         private void FixedUpdate()
         {
-            PlayerMovement();
+            //PlayerMovement();
         }
 
-        private void PlayerMovement()
+        /*private void PlayerMovement()
         {
             if(Input.GetAxisRaw("Horizontal") > 0f)
             {
@@ -36,6 +36,6 @@ namespace SS.FallUp.Player
         internal void PlatformMove(float x)
         {
             _rigidbody2d.linearVelocity = new Vector2(x, _rigidbody2d.linearVelocity.y);
-        }
+        }*/
     }
 }

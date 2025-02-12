@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3658078535936627843}
   - component: {fileID: 1737463696094312448}
   m_Layer: 0
-  m_Name: Spikes-Platform
+  m_Name: SpikesPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,4 +147,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89ca40d8a87304a47b5085221b7d608e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformSO: {fileID: 11400000, guid: 9a65d27e10250c44c93a5dccfcc356f1, type: 2}

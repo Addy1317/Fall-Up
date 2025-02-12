@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2372878381219351828}
   - component: {fileID: 1427345092709088585}
   - component: {fileID: 8588203322828455607}
-  - component: {fileID: 1745210178522133778}
+  - component: {fileID: 3678476033589278900}
   m_Layer: 0
   m_Name: 'VanishingPlatform '
   m_TagString: Untagged
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5, y: 1.3}
   m_EdgeRadius: 0
---- !u!114 &1745210178522133778
+--- !u!114 &3678476033589278900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,4 +147,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17be5c01ae4ac5a429c829f94c3b3603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformSO: {fileID: 11400000, guid: 9a65d27e10250c44c93a5dccfcc356f1, type: 2}
