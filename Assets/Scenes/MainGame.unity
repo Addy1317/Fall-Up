@@ -1579,7 +1579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &751106398
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3034,7 +3034,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -150}
   m_SizeDelta: {x: 600, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1357883622
@@ -3313,19 +3313,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54029ac7ebda83c40b3b14feed170601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformPrefabs:
-  - platformType: 0
-    prefab: {fileID: 3350208209495254232, guid: a70c2535583341d49b29f7d1247d7e24, type: 3}
-  - platformType: 1
-    prefab: {fileID: 3350208209495254232, guid: a70c2535583341d49b29f7d1247d7e24, type: 3}
-  - platformType: 2
-    prefab: {fileID: 3350208209495254232, guid: a70c2535583341d49b29f7d1247d7e24, type: 3}
-  - platformType: 3
-    prefab: {fileID: 3350208209495254232, guid: a70c2535583341d49b29f7d1247d7e24, type: 3}
-  - platformType: 4
-    prefab: {fileID: 3350208209495254232, guid: a70c2535583341d49b29f7d1247d7e24, type: 3}
   platformSpawnerSO: {fileID: 11400000, guid: cb33e118eaac53a4db2663f331fa7ed4, type: 2}
   poolParent: {fileID: 1459342686}
+  platformPrefabs:
+  - platformType: 1
+    prefab: {fileID: 2274965880239083278, guid: e27ca9f5ac924294c8caa6f59706fbc0, type: 3}
+  - platformType: 1
+    prefab: {fileID: 2274965880239083278, guid: e27ca9f5ac924294c8caa6f59706fbc0, type: 3}
+  - platformType: 1
+    prefab: {fileID: 2274965880239083278, guid: e27ca9f5ac924294c8caa6f59706fbc0, type: 3}
+  - platformType: 1
+    prefab: {fileID: 2274965880239083278, guid: e27ca9f5ac924294c8caa6f59706fbc0, type: 3}
+  - platformType: 1
+    prefab: {fileID: 2274965880239083278, guid: e27ca9f5ac924294c8caa6f59706fbc0, type: 3}
 --- !u!1 &1495949691
 GameObject:
   m_ObjectHideFlags: 0
@@ -3894,13 +3894,13 @@ GameObject:
   - component: {fileID: 1748703927}
   - component: {fileID: 1748703926}
   - component: {fileID: 1748703929}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1748703924
 Transform:
   m_ObjectHideFlags: 0

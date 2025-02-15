@@ -1,5 +1,6 @@
 using SS.FallUp.MainManager;
 using SS.FallUp.Player;
+using SS.FallUp.Services;
 using System.Collections;
 using UnityEngine;
 
@@ -16,10 +17,8 @@ namespace SS.FallUp.Platforms
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            // Check if the player collides with the spike platform
             if (collision.gameObject.layer == _playerLayer)
             {
-                // Handle player interaction with the spike
                 Debug.Log("Player hit a spike! Game Over or reset logic here.");
 
                 StartCoroutine(PlayerDeathOnSpikesRoutine());
@@ -28,6 +27,10 @@ namespace SS.FallUp.Platforms
 
         private IEnumerator PlayerDeathOnSpikesRoutine()
         {
+            yield return new WaitForSeconds(1);
+
+            GameService.Instance.uiManager.OnPlayerDeath();
+
             yield return new WaitForSeconds(1);
 
             ReturnToPool();

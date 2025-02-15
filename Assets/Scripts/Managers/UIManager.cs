@@ -90,15 +90,7 @@ namespace SS.FallUp.UI
         #endregion
 
         #region GameOver Panel
-        internal void OnGameOver()
-        {
-            GameOverPanel.DisplayGameOverInfo();
-            Debug.Log("GameOver Panel: " + GameOverPanel.gameObject.name);
-            GameService.Instance.gameManager.PauseGame();
-        }
-        #endregion
-
-        private void OnPlayerDeath()
+        internal void OnPlayerDeath()
         {
             TriggerGameOver();
             //gameOverPanel.SetActive(true);
@@ -111,5 +103,13 @@ namespace SS.FallUp.UI
             gameOverPanel.SetActive(true);
             OnGameOver();
         }
+
+        internal void OnGameOver()
+        {
+            GameOverPanel.DisplayGameOverInfo();
+            Debug.Log("GameOver Panel: " + GameOverPanel.gameObject.name);
+            GameService.Instance.gameManager.PauseGame();
+        }
+        #endregion
     }
 }

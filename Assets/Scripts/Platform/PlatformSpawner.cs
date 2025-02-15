@@ -27,10 +27,12 @@ namespace SS.FallUp.Platforms
 
     public class PlatformSpawner : MonoBehaviour
     {
-        [Header("Platform Prefabs")]
-        [SerializeField] private PlatformPrefab[] platformPrefabs;
+        [Header("Platform ScriptableObject")]
         [SerializeField] private PlatformSpawnerSO platformSpawnerSO;
         [SerializeField] private Transform poolParent;
+        [Header("Platform Prefabs")]
+        [SerializeField] private PlatformPrefab[] platformPrefabs;
+
 
         private ObjectPool<Platform> platformPool;
 
