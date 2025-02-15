@@ -29,6 +29,7 @@ namespace SS.FallUp.Platforms
     {
         [Header("Platform ScriptableObject")]
         [SerializeField] private PlatformSpawnerSO platformSpawnerSO;
+        [Header("Platform Pool")]
         [SerializeField] private Transform poolParent;
         [Header("Platform Prefabs")]
         [SerializeField] private PlatformPrefab[] platformPrefabs;

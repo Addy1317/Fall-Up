@@ -3316,16 +3316,16 @@ MonoBehaviour:
   platformSpawnerSO: {fileID: 11400000, guid: cb33e118eaac53a4db2663f331fa7ed4, type: 2}
   poolParent: {fileID: 1459342686}
   platformPrefabs:
-  - platformType: 1
-    prefab: {fileID: 2274965880239083278, guid: e27ca9f5ac924294c8caa6f59706fbc0, type: 3}
-  - platformType: 1
-    prefab: {fileID: 2274965880239083278, guid: e27ca9f5ac924294c8caa6f59706fbc0, type: 3}
-  - platformType: 1
-    prefab: {fileID: 2274965880239083278, guid: e27ca9f5ac924294c8caa6f59706fbc0, type: 3}
-  - platformType: 1
-    prefab: {fileID: 2274965880239083278, guid: e27ca9f5ac924294c8caa6f59706fbc0, type: 3}
-  - platformType: 1
-    prefab: {fileID: 2274965880239083278, guid: e27ca9f5ac924294c8caa6f59706fbc0, type: 3}
+  - platformType: 3
+    prefab: {fileID: 1328186164044105419, guid: 9acb5b606bda71f45a795ab77305647a, type: 3}
+  - platformType: 3
+    prefab: {fileID: 1328186164044105419, guid: 9acb5b606bda71f45a795ab77305647a, type: 3}
+  - platformType: 3
+    prefab: {fileID: 1328186164044105419, guid: 9acb5b606bda71f45a795ab77305647a, type: 3}
+  - platformType: 3
+    prefab: {fileID: 1328186164044105419, guid: 9acb5b606bda71f45a795ab77305647a, type: 3}
+  - platformType: 3
+    prefab: {fileID: 1328186164044105419, guid: 9acb5b606bda71f45a795ab77305647a, type: 3}
 --- !u!1 &1495949691
 GameObject:
   m_ObjectHideFlags: 0
@@ -4174,7 +4174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1883956419
 Transform:
   m_ObjectHideFlags: 0
