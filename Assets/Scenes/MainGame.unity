@@ -3318,6 +3318,14 @@ MonoBehaviour:
   platformPrefabs:
   - platformType: 0
     prefab: {fileID: 2552816911581991342, guid: 84050678a7db39548ba1d84706a2c3b8, type: 3}
+  - platformType: 1
+    prefab: {fileID: 2274965880239083278, guid: e27ca9f5ac924294c8caa6f59706fbc0, type: 3}
+  - platformType: 2
+    prefab: {fileID: 3350208209495254232, guid: a70c2535583341d49b29f7d1247d7e24, type: 3}
+  - platformType: 3
+    prefab: {fileID: 1328186164044105419, guid: 9acb5b606bda71f45a795ab77305647a, type: 3}
+  - platformType: 4
+    prefab: {fileID: 154056418600120498, guid: ab27702ff7fb8e94ab8b3730d75d5d10, type: 3}
 --- !u!1 &1495949691
 GameObject:
   m_ObjectHideFlags: 0
