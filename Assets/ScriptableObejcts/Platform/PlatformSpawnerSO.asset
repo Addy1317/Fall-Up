@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlatformSpawnerSO
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  minSpawnInterval: 0
-  maxSpawnInterval: 2
+  minSpawnInterval: 0.5
+  maxSpawnInterval: 1.5
   spawnXRange: 1.7
-  spawnYPosition: -6
+  spawnYPosition: -7

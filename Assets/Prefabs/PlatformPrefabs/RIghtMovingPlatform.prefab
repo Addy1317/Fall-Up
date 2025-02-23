@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3175902119998525914}
   - component: {fileID: 1654028416006030205}
   m_Layer: 0
-  m_Name: 'RIghtMovingPlatform '
+  m_Name: RIghtMovingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

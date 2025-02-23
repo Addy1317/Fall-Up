@@ -11,6 +11,11 @@ namespace SS.FallUp.Platforms
 
         private Coroutine vanishCoroutine;
 
+        protected override void Update()
+        {
+            base.Update();  // Ensure movement logic runs
+        }
+
         public override void Activate()
         {
             base.Activate();
@@ -37,6 +42,11 @@ namespace SS.FallUp.Platforms
             // Reappear the platform
             gameObject.SetActive(true);
             Activate(); // Restart behavior when reappearing
+        }
+
+        protected override PlatformType GetPlatformType()
+        {
+            return PlatformType.VanishingPlatform;
         }
     }
 }

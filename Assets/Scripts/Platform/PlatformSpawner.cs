@@ -27,77 +27,124 @@ namespace SS.FallUp.Platforms
 
     public class PlatformSpawner : MonoBehaviour
     {
+        #region Serialized Fields
         [Header("Platform ScriptableObject")]
         [SerializeField] private PlatformSpawnerSO platformSpawnerSO;
+
         [Header("Platform Pool")]
         [SerializeField] private Transform poolParent;
+
         [Header("Platform Prefabs")]
         [SerializeField] private PlatformPrefab[] platformPrefabs;
+        #endregion
 
+        #region Private Variables
+        private Dictionary<PlatformType, Queue<GameObject>> platformPools = new Dictionary<PlatformType, Queue<GameObject>>();
+        private Dictionary<PlatformType, GameObject> platformPrefabLookup = new Dictionary<PlatformType, GameObject>();
 
-        private ObjectPool<Platform> platformPool;
+        private const int PoolSize = 5;
+        private float nextSpawnTime;
+        #endregion
 
-        private void Start()
+        private void Awake()
         {
-            platformPool = new ObjectPool<Platform>(CreateNewPlatform, platform => platform.gameObject.SetActive(true), platform => platform.gameObject.SetActive(false), platform => Destroy(platform.gameObject));
-            StartCoroutine(SpawnPlatforms());
+            InitializePools();
         }
 
-        private IEnumerator SpawnPlatforms()
+        private void Update()
         {
-            while (true)
+            if (Time.time >= nextSpawnTime)
             {
-                float spawnInterval = Random.Range(platformSpawnerSO.minSpawnInterval, platformSpawnerSO.maxSpawnInterval);
-                yield return new WaitForSeconds(spawnInterval);
-
-                SpawnPlatform();
+                SpawnRandomPlatform();
+                nextSpawnTime = Time.time + Random.Range(platformSpawnerSO.minSpawnInterval, platformSpawnerSO.maxSpawnInterval);
             }
         }
 
-        private void SpawnPlatform()
+        /// <summary>
+        /// Initializes object pools for each platform type.
+        /// </summary>
+        private void InitializePools()
         {
-            /*   // Choose a random platform type from the array
-               int randomIndex = Random.Range(0, platformPrefabs.Length);
-               PlatformPrefab selectedPlatform = platformPrefabs[randomIndex];
-
-               // Choose a random position within the X range
-               float randomX = Random.Range(-platformSpawnerSO.spawnXRange, platformSpawnerSO.spawnXRange);
-               Vector3 spawnPosition = new Vector3(randomX, platformSpawnerSO.spawnYPosition, 0);
-
-               // Instantiate the platform at the calculated position
-               Platform platform = platformPool.Get(); // Assuming platformPool is properly set up
-
-               platform.InitializeFromSO(platformSpawnerSO); // Initialize with spawnerSO data
-               platform.transform.position = spawnPosition;
-
-               platform.gameObject.SetActive(true); // Activate the platform*/
-
-            //========================================================================================
-            int randomIndex = Random.Range(0, platformPrefabs.Length);
-            PlatformPrefab selectedPlatform = platformPrefabs[randomIndex];
-
-            float randomX = Random.Range(-platformSpawnerSO.spawnXRange, platformSpawnerSO.spawnXRange);
-            Vector3 spawnPosition = new Vector3(randomX, platformSpawnerSO.spawnYPosition, 0);
-
-            GameObject platformInstance = Instantiate(selectedPlatform.prefab, spawnPosition, Quaternion.identity);
-
-            Platform platformScript = platformInstance.GetComponent<Platform>();
-            if (platformScript != null)
+            foreach (var platform in platformPrefabs)
             {
-                platformScript.InitializeFromSO(platformSpawnerSO);  
-                platformScript.Activate(); 
-            }
+                Queue<GameObject> pool = new Queue<GameObject>();
+                platformPools[platform.platformType] = pool;
+                platformPrefabLookup[platform.platformType] = platform.prefab;
 
-            Debug.Log($"Spawned platform type: {selectedPlatform.platformType}");
+                for (int i = 0; i < PoolSize; i++)
+                {
+                    GameObject platformInstance = Instantiate(platform.prefab, poolParent);
+                    platformInstance.SetActive(false);
+                    pool.Enqueue(platformInstance);
+                }
+            }
         }
 
-        private Platform CreateNewPlatform()
+        /// <summary>
+        /// Spawns a platform at a random X position.
+        /// </summary>
+        private void SpawnRandomPlatform()
         {
-            // Instantiate the platform prefab from the pool array
-            int randomIndex = Random.Range(0, platformPrefabs.Length);
-            PlatformPrefab selectedPlatform = platformPrefabs[randomIndex];
-            GameObject platformObject = Instantiate(selectedPlatform.prefab, poolParent);
-            return platformObject.GetComponent<Platform>();
+            PlatformType randomType = (PlatformType)Random.Range(0, System.Enum.GetValues(typeof(PlatformType)).Length);
+            Vector3 spawnPosition = new Vector3(
+                Random.Range(-platformSpawnerSO.spawnXRange, platformSpawnerSO.spawnXRange),
+                platformSpawnerSO.spawnYPosition,
+                0f
+            );
+
+            Quaternion spawnRotation = Quaternion.identity;
+            GameObject platformObject = GetPlatform(randomType, spawnPosition, spawnRotation);
+
+            if (platformObject.TryGetComponent(out Platform platform))
+            {
+                platform.Initialize(platformSpawnerSO, this);
+                platform.Activate();
+            }
+        }
+
+        /// <summary>
+        /// Retrieves a platform from the pool.
+        /// </summary>
+        private GameObject GetPlatform(PlatformType platformType, Vector3 position, Quaternion rotation)
+        {
+            if (!platformPools.ContainsKey(platformType))
+            {
+                Debug.LogError($"Platform Type {platformType} not found in pool!");
+                return null;
+            }
+
+            Queue<GameObject> pool = platformPools[platformType];
+
+            GameObject platformInstance;
+            if (pool.Count > 0)
+            {
+                platformInstance = pool.Dequeue();
+            }
+            else
+            {
+                // Pool is empty, instantiate a new one (optional, depends on design)
+                platformInstance = Instantiate(platformPrefabLookup[platformType], poolParent);
+            }
+
+            platformInstance.transform.SetPositionAndRotation(position, rotation);
+            platformInstance.SetActive(true);
+            return platformInstance;
+        }
+
+        /// <summary>
+        /// Returns a platform back to its pool.
+        /// </summary>
+        public void ReturnPlatform(PlatformType platformType, GameObject platform)
+        {
+            if (!platformPools.ContainsKey(platformType))
+            {
+                Debug.LogError($"Platform Type {platformType} not found in pool!");
+                return;
+            }
+
+            platform.SetActive(false);
+            platform.transform.SetParent(poolParent);
+            platformPools[platformType].Enqueue(platform);
         }
     }
 }

@@ -1,5 +1,3 @@
-using SS.FallUp.MainManager;
-using SS.FallUp.Player;
 using SS.FallUp.Services;
 using System.Collections;
 using UnityEngine;
@@ -13,6 +11,10 @@ namespace SS.FallUp.Platforms
         private void Awake()
         {
             _playerLayer = LayerMask.NameToLayer("Player");
+        }
+        protected override void Update()
+        {
+            base.Update();  // Ensure movement logic runs
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -34,6 +36,11 @@ namespace SS.FallUp.Platforms
             yield return new WaitForSeconds(1);
 
             ReturnToPool();
+        }
+
+        protected override PlatformType GetPlatformType()
+        {
+            return PlatformType.SpikesPlatform;
         }
     }
 }

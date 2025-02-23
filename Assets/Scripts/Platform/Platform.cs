@@ -2,46 +2,36 @@ using UnityEngine;
 
 namespace SS.FallUp.Platforms
 {
-    public  abstract class Platform : MonoBehaviour
+    public abstract class Platform : MonoBehaviour
     {
         protected float moveSpeed;
-        protected float upperBound;
-        protected float lowerBound;
+        protected float targetHeight;
+        protected PlatformSpawner platformSpawner;
 
-        private bool isActive;
-
-        // Initialize platform variables from ScriptableObject
-        public virtual void InitializeFromSO(PlatformSpawnerSO platformSpawnerSO)
+        public void Initialize(PlatformSpawnerSO platformSpawnerSO, PlatformSpawner spawner)
         {
-            if (platformSpawnerSO != null)
-            {
-                moveSpeed = platformSpawnerSO.moveSpeed;
-                upperBound = platformSpawnerSO.spawnYPosition + 10f; 
-                lowerBound = platformSpawnerSO.spawnYPosition - 5f; 
-            }
-            else
-            {
-                Debug.LogError("PlatformSpawnerSO not assigned in Platform script.");
-            }
+            moveSpeed = platformSpawnerSO.moveSpeed;
+            targetHeight = Camera.main.orthographicSize + 2f; // Moves out of screen
+            platformSpawner = spawner;
+        }
+
+        public virtual void Activate()
+        {
+            Debug.Log($"Activating Platform: {GetPlatformType()}");
+            gameObject.SetActive(true);
         }
 
         protected virtual void Update()
         {
-            if (isActive)
-            {
-                MoveUpward();
-                CheckOutOfBounds();
-            }
+            MoveUpwards();
         }
 
-        protected virtual void MoveUpward()
+        protected virtual void MoveUpwards()
         {
-            transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
-        }
+            Debug.Log("Platform Moving Upwards");
+            transform.position += Vector3.up * moveSpeed * Time.deltaTime;
 
-        protected virtual void CheckOutOfBounds()
-        {
-            if (transform.position.y > upperBound)
+            if (transform.position.y >= targetHeight)
             {
                 ReturnToPool();
             }
@@ -49,16 +39,9 @@ namespace SS.FallUp.Platforms
 
         protected virtual void ReturnToPool()
         {
-            isActive = false;
-            gameObject.SetActive(false);
-            Debug.Log("Platform returned to pool");
+            platformSpawner.ReturnPlatform(GetPlatformType(), gameObject);
         }
 
-        public virtual void Activate()
-        {
-            isActive = true;
-            gameObject.SetActive(true);
-        }
+        protected abstract PlatformType GetPlatformType();
     }
 }
-

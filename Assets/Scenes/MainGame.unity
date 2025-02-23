@@ -3316,16 +3316,8 @@ MonoBehaviour:
   platformSpawnerSO: {fileID: 11400000, guid: cb33e118eaac53a4db2663f331fa7ed4, type: 2}
   poolParent: {fileID: 1459342686}
   platformPrefabs:
-  - platformType: 3
-    prefab: {fileID: 1328186164044105419, guid: 9acb5b606bda71f45a795ab77305647a, type: 3}
-  - platformType: 3
-    prefab: {fileID: 1328186164044105419, guid: 9acb5b606bda71f45a795ab77305647a, type: 3}
-  - platformType: 3
-    prefab: {fileID: 1328186164044105419, guid: 9acb5b606bda71f45a795ab77305647a, type: 3}
-  - platformType: 3
-    prefab: {fileID: 1328186164044105419, guid: 9acb5b606bda71f45a795ab77305647a, type: 3}
-  - platformType: 3
-    prefab: {fileID: 1328186164044105419, guid: 9acb5b606bda71f45a795ab77305647a, type: 3}
+  - platformType: 0
+    prefab: {fileID: 2552816911581991342, guid: 84050678a7db39548ba1d84706a2c3b8, type: 3}
 --- !u!1 &1495949691
 GameObject:
   m_ObjectHideFlags: 0
