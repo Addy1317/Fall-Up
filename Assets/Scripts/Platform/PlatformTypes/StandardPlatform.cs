@@ -11,7 +11,7 @@ namespace SS.FallUp.Platforms
 
         protected override void Update()
         {
-            base.Update();  // Ensure movement logic runs
+            base.Update();  
         }
     }
 }

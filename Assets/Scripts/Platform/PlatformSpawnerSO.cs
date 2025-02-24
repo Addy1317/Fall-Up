@@ -14,13 +14,10 @@ namespace SS.FallUp
 
         [Header("Spawn Position Settings")]
         [SerializeField] internal float spawnXRange = 5f;      
-        [SerializeField] internal float spawnYPosition = -5f;  
+        [SerializeField] internal float spawnYPosition = -5f;
 
-/*      [Header("Bounds Settings")]
-        [SerializeField] internal float minXBound = -4f;   
-        [SerializeField] internal float maxXBound = 4f;    
-        [SerializeField] internal float upperYBound = 10f; 
-        [SerializeField] internal float lowerYBound = -5f; */
+        [Header("Platform Pool Size")]
+        [SerializeField] internal int platformPoolSize= 15;
     }
 }
 

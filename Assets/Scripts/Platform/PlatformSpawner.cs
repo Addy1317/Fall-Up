@@ -42,7 +42,7 @@ namespace SS.FallUp.Platforms
         private Dictionary<PlatformType, Queue<GameObject>> platformPools = new Dictionary<PlatformType, Queue<GameObject>>();
         private Dictionary<PlatformType, GameObject> platformPrefabLookup = new Dictionary<PlatformType, GameObject>();
 
-        private const int PoolSize = 5;
+        //private const int PoolSize = 5;
         private float nextSpawnTime;
         #endregion
 
@@ -60,9 +60,6 @@ namespace SS.FallUp.Platforms
             }
         }
 
-        /// <summary>
-        /// Initializes object pools for each platform type.
-        /// </summary>
         private void InitializePools()
         {
             foreach (var platform in platformPrefabs)
@@ -71,7 +68,7 @@ namespace SS.FallUp.Platforms
                 platformPools[platform.platformType] = pool;
                 platformPrefabLookup[platform.platformType] = platform.prefab;
 
-                for (int i = 0; i < PoolSize; i++)
+                for (int i = 0; i < platformSpawnerSO.platformPoolSize; i++)
                 {
                     GameObject platformInstance = Instantiate(platform.prefab, poolParent);
                     platformInstance.SetActive(false);
@@ -80,9 +77,6 @@ namespace SS.FallUp.Platforms
             }
         }
 
-        /// <summary>
-        /// Spawns a platform at a random X position.
-        /// </summary>
         private void SpawnRandomPlatform()
         {
             PlatformType randomType = (PlatformType)Random.Range(0, System.Enum.GetValues(typeof(PlatformType)).Length);
@@ -102,9 +96,6 @@ namespace SS.FallUp.Platforms
             }
         }
 
-        /// <summary>
-        /// Retrieves a platform from the pool.
-        /// </summary>
         private GameObject GetPlatform(PlatformType platformType, Vector3 position, Quaternion rotation)
         {
             if (!platformPools.ContainsKey(platformType))
@@ -131,9 +122,6 @@ namespace SS.FallUp.Platforms
             return platformInstance;
         }
 
-        /// <summary>
-        /// Returns a platform back to its pool.
-        /// </summary>
         public void ReturnPlatform(PlatformType platformType, GameObject platform)
         {
             if (!platformPools.ContainsKey(platformType))

@@ -11,7 +11,7 @@ namespace SS.FallUp.Platforms
         public void Initialize(PlatformSpawnerSO platformSpawnerSO, PlatformSpawner spawner)
         {
             moveSpeed = platformSpawnerSO.moveSpeed;
-            targetHeight = Camera.main.orthographicSize + 2f; // Moves out of screen
+            targetHeight = Camera.main.orthographicSize + 2f;
             platformSpawner = spawner;
         }
 

@@ -13,14 +13,13 @@ namespace SS.FallUp.Platforms
 
         protected override void Update()
         {
-            base.Update();  // Ensure movement logic runs
+            base.Update();  
         }
 
         public override void Activate()
         {
             base.Activate();
 
-            // Start the vanishing sequence
             if (vanishCoroutine != null)
             {
                 StopCoroutine(vanishCoroutine); 
@@ -30,18 +29,14 @@ namespace SS.FallUp.Platforms
 
         private IEnumerator VanishingSequence()
         {
-            // Wait for vanish delay
             yield return new WaitForSeconds(vanishDelay);
 
-            // Vanish the platform
             gameObject.SetActive(false);
 
-            // Wait for reappear delay
             yield return new WaitForSeconds(reappearDelay);
 
-            // Reappear the platform
             gameObject.SetActive(true);
-            Activate(); // Restart behavior when reappearing
+            Activate();
         }
 
         protected override PlatformType GetPlatformType()

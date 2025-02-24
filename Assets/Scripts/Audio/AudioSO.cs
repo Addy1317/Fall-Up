@@ -7,9 +7,15 @@ namespace SS.FallUp.Audio
     // Enum for multiple SFX types
     public enum SFXType
     {
-        Dropping,
-        Collecting,
-        Bombing
+        SkullDropSFX,
+        CoinCollectSFX,
+        BombDropSFX,
+
+        StandardPlatformSFX,
+        SpikePlatformSFX,
+        VanishingPlatformSFX,
+        RightPlatformSFX,
+        LeftPlatformSFX,
     }
 
     [System.Serializable]
@@ -37,7 +43,7 @@ namespace SS.FallUp.Audio
             {
                 if (sfx.sfxType == sfxType)
                 {
-                    return sfx.audioClip; // Return the audioClip
+                    return sfx.audioClip; 
                 }
             }
 
