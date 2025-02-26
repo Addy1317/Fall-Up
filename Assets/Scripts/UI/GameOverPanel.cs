@@ -26,7 +26,7 @@ namespace SS.FallUp.GameOver
 
         public void OnRePlayButton()
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("MainGame");
         }
     }
 }

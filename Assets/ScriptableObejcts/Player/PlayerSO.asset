@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: PlayerSO
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpForce: 10
   deathYPosition: -5
   gravityScale: 1
   minX: -2.5

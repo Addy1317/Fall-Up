@@ -9,7 +9,6 @@ namespace SS.FallUp.Player
     {
         [Header("Movement Settings")]
         [SerializeField] internal float moveSpeed = 5f;
-        [SerializeField] internal float jumpForce = 10f;
 
         [Header("PlayerFall Position")]
         [SerializeField] internal float deathYPosition = -5.6f;
