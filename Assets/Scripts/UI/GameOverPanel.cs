@@ -2,7 +2,7 @@ using SS.FallUp.Services;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-using SS.FallUp.Timer;
+using System.Collections;
 
 namespace SS.FallUp.GameOver
 {
@@ -17,16 +17,25 @@ namespace SS.FallUp.GameOver
            UpdateTotalTime();
         }
 
-        // Update the total time text
         private void UpdateTotalTime()
         {
-            totalTimeText.text = "Total Time Survived: " + GameService.Instance.timerManager.GetFormattedTime(); // Set the total time survived
+            totalTimeText.text = "Time Survived: " + GameService.Instance.timerManager.GetFormattedTime(); 
             Debug.Log($"Total Time Survived displayed: {totalTimeText.text}");
         }
 
         public void OnRePlayButton()
         {
-            SceneManager.LoadScene("MainGame");
+            Debug.Log("Replay Button Pressed!");
+            StartCoroutine(OnGameRestartRoutine());
+        }
+
+        private IEnumerator OnGameRestartRoutine()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            yield return new WaitForSeconds(1f);
+            GameService.Instance.gameManager.ResumeGame();
+            Debug.Log("ReBuilding The Game");
         }
     }
 }
+

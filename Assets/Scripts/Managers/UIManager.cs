@@ -41,7 +41,7 @@ namespace SS.FallUp.UI
         {
             if (Input.GetKeyDown(KeyCode.Space)) 
             {
-                TriggerGameOver();
+                OnPlayerDeath();    
             }
         }
 
@@ -57,11 +57,13 @@ namespace SS.FallUp.UI
         public void OnResumeButton()
         {
             pausePanel.SetActive(false);
+            GameService.Instance.gameManager.ResumeGame();
         }
 
         public void OnRestartButton()
         {
             SceneManager.LoadScene("MainMenu");
+            GameService.Instance.gameManager.ResumeGame();
         }
 
         public void OnSettingsButton()
@@ -91,24 +93,17 @@ namespace SS.FallUp.UI
 
         #region GameOver Panel
         internal void OnPlayerDeath()
-        {
-            TriggerGameOver();
-            //gameOverPanel.SetActive(true);
-            Debug.Log("Game Over! Player has died.");
-            // Additional logic like pausing the game or displaying final score
-        }
-
-        private void TriggerGameOver()
-        {
+        {      
             gameOverPanel.SetActive(true);
             OnGameOver();
+            Debug.Log("Game Over! Player has died.");
         }
 
         internal void OnGameOver()
         {
             GameOverPanel.DisplayGameOverInfo();
             Debug.Log("GameOver Panel: " + GameOverPanel.gameObject.name);
-            GameService.Instance.gameManager.PauseGame();
+            //GameService.Instance.gameManager.PauseGame();
         }
         #endregion
     }

@@ -1,4 +1,5 @@
- using UnityEngine;
+using SS.FallUp.Services;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -16,6 +17,7 @@ namespace SS.FallUp.UI
         public void OnPlayButton()
         {
             SceneManager.LoadScene("MainGame");
+            GameService.Instance.gameManager.ResumeGame();
         }
 
         public void OnSettingsButton()

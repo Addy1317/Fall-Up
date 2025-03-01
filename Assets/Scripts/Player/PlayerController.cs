@@ -42,8 +42,14 @@ namespace SS.FallUp.Player
         private void HandlePlayerDeath()
         {
             GameService.Instance.eventManager.OnPlayerDeathEvent.InvokeEvent();
-            //EventManager.Instance.OnPlayerDeathEvent.InvokeEvent();
+
+            Destroy(this.gameObject);
             Debug.Log("Player has fallen off screen!");
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+           
         }
     }
 }

@@ -1,3 +1,4 @@
+using SS.FallUp.Player;
 using SS.FallUp.Services;
 using System.Collections;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace SS.FallUp.Platforms
         }
         protected override void Update()
         {
-            base.Update();  // Ensure movement logic runs
+            base.Update();  
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -23,13 +24,18 @@ namespace SS.FallUp.Platforms
             {
                 Debug.Log("Player hit a spike! Game Over or reset logic here.");
 
-                StartCoroutine(PlayerDeathOnSpikesRoutine());
+                StartCoroutine(PlayerDeathOnSpikesRoutine(collision.gameObject));
             }
         }
 
-        private IEnumerator PlayerDeathOnSpikesRoutine()
+        private IEnumerator PlayerDeathOnSpikesRoutine(GameObject player)
         {
             yield return new WaitForSeconds(1);
+
+            if (player != null)
+            {
+                Destroy(player); 
+            }
 
             GameService.Instance.uiManager.OnPlayerDeath();
 
