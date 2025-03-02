@@ -1,6 +1,3 @@
-using SS.FallUp.Generic;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,17 +14,14 @@ namespace SS.FallUp.Audio
 
         private void Awake()
         {
-            // Ensure this instance persists across scenes
             DontDestroyOnLoad(this.gameObject);
 
-            // Create an AudioSource for Background Music
             backgroundMusicSource = gameObject.AddComponent<AudioSource>();
-            backgroundMusicSource.clip = audioSettings.backgroundMusicClip; // Assign background music clip
-            backgroundMusicSource.loop = true; // Set it to loop
-            backgroundMusicSource.volume = audioSettings.backgroundMusicVolume; // Set initial volume
-            backgroundMusicSource.Play(); // Start playing the background music
+            backgroundMusicSource.clip = audioSettings.backgroundMusicClip; 
+            backgroundMusicSource.loop = true; 
+            backgroundMusicSource.volume = audioSettings.backgroundMusicVolume; 
+            backgroundMusicSource.Play(); 
 
-            // Set initial slider values from AudioSO
             if (backgroundVolumeSlider != null)
             {
                 backgroundVolumeSlider.value = audioSettings.backgroundMusicVolume;

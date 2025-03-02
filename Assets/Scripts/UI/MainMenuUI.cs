@@ -1,7 +1,7 @@
+using SS.FallUp.Audio;
 using SS.FallUp.Services;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace SS.FallUp.UI
 {
@@ -13,21 +13,27 @@ namespace SS.FallUp.UI
         [Header("Credits Panel")]
         [SerializeField] private GameObject creditsPanel;
 
+        [Header("Audio Object")]
+        [SerializeField] private AudioManager audioManager;
+
         #region Main Menu Buttons
         public void OnPlayButton()
         {
             SceneManager.LoadScene("MainGame");
             GameService.Instance.gameManager.ResumeGame();
+            audioManager.PlaySFX(SFXType.ButtonClick);
         }
 
         public void OnSettingsButton()
         {
             settingsPanel.SetActive(true);
+            audioManager.PlaySFX(SFXType.ButtonClick);
         }
 
         public void OnQuitButton()
         {
             Application.Quit();
+            audioManager.PlaySFX(SFXType.ButtonClick);
         }
 
         #endregion
@@ -36,7 +42,8 @@ namespace SS.FallUp.UI
 
         public void OnCloseButton()
         {
-            settingsPanel.SetActive(false); 
+            settingsPanel.SetActive(false);
+            audioManager.PlaySFX(SFXType.ButtonClick);
         }
 
         #endregion
@@ -45,11 +52,13 @@ namespace SS.FallUp.UI
         public void OnCreditsButton()
         {
             //creditsPanel.SetActive(!creditsPanel.activeSelf);
+            audioManager.PlaySFX(SFXType.ButtonClick);
             creditsPanel.SetActive(true);
         }
 
         public void OnCreditsCloseButton()
         {
+            audioManager.PlaySFX(SFXType.ButtonClick);
             creditsPanel.SetActive(false);
         }
 

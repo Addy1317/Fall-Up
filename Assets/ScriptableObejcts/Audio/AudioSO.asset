@@ -17,6 +17,28 @@ MonoBehaviour:
   sfxClips:
   - sfxType: 0
     audioClip: {fileID: 0}
+  - sfxType: 1
+    audioClip: {fileID: 0}
+  - sfxType: 2
+    audioClip: {fileID: 0}
   - sfxType: 0
     audioClip: {fileID: 0}
+  - sfxType: 3
+    audioClip: {fileID: 0}
+  - sfxType: 4
+    audioClip: {fileID: 0}
+  - sfxType: 5
+    audioClip: {fileID: 0}
+  - sfxType: 6
+    audioClip: {fileID: 0}
+  - sfxType: 7
+    audioClip: {fileID: 0}
+  - sfxType: 8
+    audioClip: {fileID: 0}
+  - sfxType: 9
+    audioClip: {fileID: 0}
+  - sfxType: 10
+    audioClip: {fileID: 8300000, guid: 45b2f50741a1e974ba204b8b49e0aef1, type: 3}
+  - sfxType: 11
+    audioClip: {fileID: 8300000, guid: b3f8a087b22a4014bbd5d2cd568726f2, type: 3}
   sfxVolume: 0.5

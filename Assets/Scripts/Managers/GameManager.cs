@@ -32,7 +32,6 @@ namespace SS.FallUp.MainManager
             Debug.Log("Game Resumed");
         }
 
-        // Optional: Direct method to check pause state
         public bool IsGamePaused()
         {
             return isPaused;

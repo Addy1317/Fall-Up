@@ -1,7 +1,5 @@
-using SS.FallUp.Event;
 using SS.FallUp.Services;
 using UnityEngine;
-using UnityEngine.XR;
 
 namespace SS.FallUp.Player
 {
@@ -45,11 +43,6 @@ namespace SS.FallUp.Player
 
             Destroy(this.gameObject);
             Debug.Log("Player has fallen off screen!");
-        }
-
-        private void OnCollisionEnter(Collision collision)
-        {
-           
         }
     }
 }

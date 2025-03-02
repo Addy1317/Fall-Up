@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using SS.FallUp.Services;
 using SS.FallUp.GameOver;
+using SS.FallUp.Audio;
 
 namespace SS.FallUp.UI
 {
@@ -50,6 +51,7 @@ namespace SS.FallUp.UI
         {
             pausePanel.SetActive(!pausePanel.activeSelf);
             GameService.Instance.gameManager.PauseGame();
+            GameService.Instance.audioManager.PlaySFX(SFXType.ButtonClick);
         }
         #endregion
 
@@ -58,21 +60,25 @@ namespace SS.FallUp.UI
         {
             pausePanel.SetActive(false);
             GameService.Instance.gameManager.ResumeGame();
+            GameService.Instance.audioManager.PlaySFX(SFXType.ButtonClick);
         }
 
         public void OnRestartButton()
         {
             SceneManager.LoadScene("MainMenu");
             GameService.Instance.gameManager.ResumeGame();
+            GameService.Instance.audioManager.PlaySFX(SFXType.ButtonClick);
         }
 
         public void OnSettingsButton()
         {
             settingsPanel.SetActive(true);
+            GameService.Instance.audioManager.PlaySFX(SFXType.ButtonClick);
         }
 
         public void OnQuitButton()
         {
+            GameService.Instance.audioManager.PlaySFX(SFXType.ButtonClick);
             Application.Quit();
         }
 
@@ -80,6 +86,7 @@ namespace SS.FallUp.UI
         {
             pausePanel.SetActive(false);
             GameService.Instance.gameManager.ResumeGame();
+            GameService.Instance.audioManager.PlaySFX(SFXType.ButtonClick);
         }
 
         #endregion
@@ -87,7 +94,9 @@ namespace SS.FallUp.UI
         #region Setting Panel Button
         public void OnSettingsCloseButton()
         {
+            GameService.Instance.audioManager.PlaySFX(SFXType.ButtonClick);
             settingsPanel.SetActive(false);
+            GameService.Instance.audioManager.PlaySFX(SFXType.ButtonClick);
         }
         #endregion
 
