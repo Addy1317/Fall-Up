@@ -26,13 +26,21 @@ namespace SS.FallUp.Platforms
 
         private void ApplySlideEffect(Rigidbody2D playerRb)
         {
-            Vector2 slideVelocity = new Vector2(slideSpeed, playerRb.linearVelocity.y);
-            playerRb.linearVelocity = slideVelocity;
+            /*  Vector2 slideVelocity = new Vector2(slideSpeed, playerRb.linearVelocity.y);
+              playerRb.linearVelocity = slideVelocity;*/
+            Vector2 currentVelocity = playerRb.velocity;
+
+            // Allow player input, but still apply sliding effect
+            if (Mathf.Abs(currentVelocity.x) < slideSpeed)
+            {
+                playerRb.velocity = new Vector2(slideSpeed, currentVelocity.y);
+            }
         }
 
         private bool IsPlayer(GameObject obj)
         {
-            return ((1 << obj.layer) & playerLayer) != 0;
+            //return ((1 << obj.layer) & playerLayer) != 0;
+            return obj.layer == Mathf.Log(playerLayer.value, 2);
         }
 
         protected override PlatformType GetPlatformType()

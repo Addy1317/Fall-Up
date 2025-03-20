@@ -45,8 +45,8 @@ namespace SS.FallUp.Player
 
         private void Move()
         {
-            /*            Vector2 movementForce = direction * playerController.playerData.moveSpeed * Time.deltaTime;
-                        playerController.rigidbody2d.AddForce(movementForce, ForceMode2D.Force);*/
+            /*Vector2 movementForce = direction * playerController.playerData.moveSpeed * Time.deltaTime;
+              playerController.rigidbody2d.AddForce(movementForce, ForceMode2D.Force);*/
 
             if (moveDirection != 0)
             {
