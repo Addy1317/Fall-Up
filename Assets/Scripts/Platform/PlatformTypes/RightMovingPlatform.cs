@@ -28,12 +28,12 @@ namespace SS.FallUp.Platforms
         {
             /*  Vector2 slideVelocity = new Vector2(slideSpeed, playerRb.linearVelocity.y);
               playerRb.linearVelocity = slideVelocity;*/
-            Vector2 currentVelocity = playerRb.velocity;
+            Vector2 currentVelocity = playerRb.linearVelocity;
 
             // Allow player input, but still apply sliding effect
             if (Mathf.Abs(currentVelocity.x) < slideSpeed)
             {
-                playerRb.velocity = new Vector2(slideSpeed, currentVelocity.y);
+                playerRb.linearVelocity = new Vector2(slideSpeed, currentVelocity.y);
             }
         }
 
