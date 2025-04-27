@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "925226548220",
+    "project_id": "spookyskull-f63c1",
+    "storage_bucket": "spookyskull-f63c1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:925226548220:android:dfcbfff632737f8bec9079",
+        "android_client_info": {
+          "package_name": "com.slowpokestudio.spookyskull"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZgwYmMZH-pDfySV4MFq3KSr3fxQ9Dapg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
