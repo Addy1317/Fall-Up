@@ -1,8 +1,6 @@
-using SS.FallUp.Services;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 namespace SS.FallUp.Coin
 {

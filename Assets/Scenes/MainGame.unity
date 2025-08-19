@@ -3555,14 +3555,14 @@ MonoBehaviour:
   platformPrefabs:
   - platformType: 0
     prefab: {fileID: 2552816911581991342, guid: 84050678a7db39548ba1d84706a2c3b8, type: 3}
-  - platformType: 1
-    prefab: {fileID: 2274965880239083278, guid: e27ca9f5ac924294c8caa6f59706fbc0, type: 3}
-  - platformType: 2
-    prefab: {fileID: 3350208209495254232, guid: a70c2535583341d49b29f7d1247d7e24, type: 3}
   - platformType: 3
     prefab: {fileID: 1328186164044105419, guid: 9acb5b606bda71f45a795ab77305647a, type: 3}
   - platformType: 4
     prefab: {fileID: 154056418600120498, guid: ab27702ff7fb8e94ab8b3730d75d5d10, type: 3}
+  - platformType: 2
+    prefab: {fileID: 3350208209495254232, guid: a70c2535583341d49b29f7d1247d7e24, type: 3}
+  - platformType: 1
+    prefab: {fileID: 2274965880239083278, guid: e27ca9f5ac924294c8caa6f59706fbc0, type: 3}
 --- !u!1 &1495949691
 GameObject:
   m_ObjectHideFlags: 0
@@ -4262,7 +4262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1748703924
 Transform:
   m_ObjectHideFlags: 0
@@ -4408,7 +4408,7 @@ Rigidbody2D:
   m_Mass: 0.0001
   m_LinearDamping: 0
   m_AngularDamping: 0
-  m_GravityScale: 0.3
+  m_GravityScale: 0.5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -4429,7 +4429,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1748703923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 844697edf8ba55f47a9f19275a49597e, type: 3}
+  m_Script: {fileID: 11500000, guid: e95af3e025ba5c8438d2f9b59563f88f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1814964657
@@ -5101,13 +5101,13 @@ GameObject:
   - component: {fileID: 2043188948}
   - component: {fileID: 2043188947}
   - component: {fileID: 2043188946}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2043188945
 Transform:
   m_ObjectHideFlags: 0
@@ -7321,5 +7321,5 @@ SceneRoots:
   - {fileID: 1991750931}
   - {fileID: 1232425508}
   - {fileID: 1309565224}
-  - {fileID: 745875977}
   - {fileID: 2036673670}
+  - {fileID: 745875977}

@@ -1,11 +1,11 @@
-using System;
-using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine;
 
 namespace SS.FallUp.Player
 {
     public class PlayerInput : MonoBehaviour
     {
+/*        #region old code
+
         private PlayerController playerController;
         private float moveDirection = 0f;
 
@@ -20,12 +20,12 @@ namespace SS.FallUp.Player
 
         private void ProcessInputs()
         {
-            if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
                 Move();
                 Debug.Log("Moving Right");
             }
-            else if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
                 Move();
                 Debug.Log("Moving Left");
@@ -45,8 +45,8 @@ namespace SS.FallUp.Player
 
         private void Move()
         {
-            /*Vector2 movementForce = direction * playerController.playerData.moveSpeed * Time.deltaTime;
-              playerController.rigidbody2d.AddForce(movementForce, ForceMode2D.Force);*/
+            Vector2 movementForce = direction * playerController.playerData.moveSpeed * Time.deltaTime;
+            playerController.rigidbody2d.AddForce(movementForce, ForceMode2D.Force);
 
             if (moveDirection != 0)
             {
@@ -65,21 +65,23 @@ namespace SS.FallUp.Player
 
             float clampedX = Mathf.Clamp(position.x, playerController.playerData.minX, playerController.playerData.maxX);
             position.x = clampedX;
-            /*if (position.x != clampedX)
+            if (position.x != clampedX)
             {
                 position.x = clampedX;
                 playerController.rigidbody2d.linearVelocity = new Vector2(0, playerController.rigidbody2d.linearVelocity.y);
-            }*/
+            }
 
             float clampedY = Mathf.Clamp(position.y, playerController.playerData.minY, position.y);
             position.y = clampedY;
-            /*if (position.y != clampedY)
+            if (position.y != clampedY)
             {
                 position.y = clampedY;
                 playerController.rigidbody2d.linearVelocity = new Vector2(playerController.rigidbody2d.linearVelocity.x, 0);
-            }*/
+            }
 
             playerController.rigidbody2d.position = position;
         }
+        #endregion*/
+
     }
 }

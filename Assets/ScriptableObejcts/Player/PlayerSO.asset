@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e0ecad848d7db44a2a68786f92e86b, type: 3}
   m_Name: PlayerSO
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 1.5
   deathYPosition: -5
   gravityScale: 1
   minX: -2.5
